@@ -10,17 +10,19 @@ void draw() {
   } else {
     fill(255);
   }
+  if(keyPressed){
+    if(key == 'a'){
+      radius = radius + 1;
+    }
+    if(key == 'z'){
+      radius = radius - 1;
+    }
+  }
   ellipse(mouseX, mouseY, radius*2, radius*2);
 }
 
 void keyReleased(){
   if(key == ENTER){
     background(192);
-  }
-  if(key == 'a'){
-    radius = radius + 5;
-  }
-  if(key == 'z'){
-    radius = radius - 5;
   }
 }
