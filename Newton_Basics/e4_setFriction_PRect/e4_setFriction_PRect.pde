@@ -58,8 +58,13 @@ void draw() {
 
 void keyReleased() {
   if (key == ENTER) {
+    for (int i = rList.size()-1; i>=0; i--) {
+      PRect r = rList.get(i);
+      r.killBody();
+      rList.remove(i);
+    }
     for (int i = 0; i < itemNum; i++) {
-      PRect r = new PRect((i*2+1)*width/12, height/4, width/12, width/12);
+      PRect r = new PRect((i*2+1)*width/12, height/4, width/9, width/9);
       r.setFillColor(color(255, 0));
       r.setStrokeColor(color(255, 0));
       r.addImage(img); //attach the image to a PCircle
