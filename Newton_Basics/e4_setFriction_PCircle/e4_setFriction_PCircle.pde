@@ -57,12 +57,18 @@ void draw() {
 
 void keyReleased() {
   if (key == ENTER) {
+    for (int i = cList.size()-1; i>=0; i--) {
+      PCircle c = cList.get(i);
+      c.killBody();
+      cList.remove(i);
+    }
     for (int i = 0; i < itemNum; i++) {
       PCircle c = new PCircle((i*2+1)*width/12, height/4, width/12);
       c.setFillColor(color(255, 0));
       c.setStrokeColor(color(255, 0));
       c.addImage(img); //attach the image to a PCircle
-      c.setBounce(1-i); //setDifferentBounciness
+      c.setBounce(0); //setDifferentBounciness
+      c.setFriction(1-i); //setDifferentBounciness
       cList.add(c);
     }
   }
