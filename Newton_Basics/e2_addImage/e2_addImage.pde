@@ -42,5 +42,6 @@ void keyReleased() {
   if (key == ENTER) {
     c.killBody();
     c = new PCircle(width/2, height/4, width/10);
+    c.addImage(img); //attach the image to a PCircle 
   }
 }
